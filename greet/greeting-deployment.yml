@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greeting-deployment
+spec:
+  selector:
+    matchLabels:
+      app: greeting-pod
+  template:
+    metadata:
+      labels:
+        app: greeting-pod
+    spec:
+      containers:
+      - name: greeting
+        image: dasun1986/greeting-service:1.1.0
+        ports:
+        - containerPort: 8084
+        resources:
+          requests:                         ##To enable HPA, you must set this parameter. 
+            cpu: 50m
+      - name: name
+        image: dasun1986/name-service:1.1.0
+        ports:
+        - containerPort: 8085
+        resources:
+          requests:                         ##To enable HPA, you must set this parameter. 
+            cpu: 50m

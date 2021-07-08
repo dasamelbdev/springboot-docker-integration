@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  greeting:
+    image: greeting-service:1.1.0
+    ports:
+    - 8083:8084
+    restart: always
+  name:
+    image: name-service:1.0.0
+    restart: always
+    ports:
+    - 8084:8085
+    depends_on:
+    - greeting

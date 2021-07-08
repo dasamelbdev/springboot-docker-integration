@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: greeting-pod
+  labels:
+    app: greetingapp
+spec:
+  containers:
+    - name: greeting
+      image: dasun1986/greeting-service:1.1.0
+      ports:
+        - containerPort : 8084
+    - name: name
+      image: dasun1986/name-service:1.1.0
+      ports:
+        - containerPort : 8085
