@@ -4,7 +4,7 @@ metadata:
   name: greeting-service
 spec:
   selector:
-    app: greeting-pod
+    app: greetingapp
   ports:
     - port: 80
       targetPort: 8084
